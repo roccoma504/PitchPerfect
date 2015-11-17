@@ -24,7 +24,7 @@
                                 <animations/>
                                 <state key="normal" image="microphone"/>
                                 <connections>
-                                    <action selector="startRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uuP-0Y-5Y2"/>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6rP-Dd-tzJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is8-L7-QI3">
@@ -39,7 +39,7 @@
                                 <animations/>
                                 <state key="normal" image="pause_blue"/>
                                 <connections>
-                                    <action selector="pauseButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ojx-gk-pCw"/>
+                                    <action selector="pauseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ydh-sb-nNc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJz-Tu-fRy">
@@ -51,7 +51,7 @@
                                 </constraints>
                                 <state key="normal" image="stop"/>
                                 <connections>
-                                    <action selector="stopRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UOR-Lx-bpS"/>
+                                    <action selector="stopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fBU-o8-bpR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jly-gT-Es2">
