@@ -46,10 +46,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // If not, log an error and default the UI.
         if (flag)
         {
-            let recordedAudio = RecordedAudio ()
-            recordedAudio.filePathUrl = recorder.url
-            recordedAudio.title = recorder.url.lastPathComponent
-            self.performSegueWithIdentifier("playSoundSegue", sender: recordedAudio)
+            self.performSegueWithIdentifier("playSoundSegue", sender: RecordedAudio (Path: recorder.url, Title: recorder.url.lastPathComponent!))
         }
         else
         {
