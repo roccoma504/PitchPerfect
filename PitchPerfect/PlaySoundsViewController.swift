@@ -46,8 +46,9 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     // Defines a function that resets all audio.
     func resetAudio() {
-        // Stop the player, node and the engine. Reset the engine.
+        // Stop the players, node and the engine. Reset the engine.
         audioPlayer.stop()
+        audioPlayerEcho.stop()
         audioPlayerNode.stop()
         audioEngine.stop()
         audioEngine.reset()
@@ -56,7 +57,8 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     //# MARK: - Audio modulation functions
     
     // Defines a function that will play the audio with the input
-    // pitch and rate.
+    // pitch and rate. The parameters are defaulted such that callers
+    // only need to modify the values that they care about.
     func playAudioWithEffect (Pitch : Float = 1.0, Rate : Float = 1.0, Reverb : Float = 0.0) {
         // Define an instances for deired effects.
         let changeEffectUnitTime = AVAudioUnitTimePitch()
@@ -99,7 +101,6 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         resetAudio ()
 
         // Stop the player and the engine. Reset the engine.
-        audioPlayerEcho.stop()
         audioPlayerEcho.currentTime = 0
         audioPlayer.play()
         
@@ -121,12 +122,7 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     //# MARK: - All IB object functions
     
     @IBAction func stopButtonPress(sender: AnyObject) {
-        // Stop the audio player early.
-        audioPlayerNode.stop()
-        // Stop the audio players that play when the echo
-        // effect is used.
-        audioPlayerEcho.stop()
-        audioPlayer.stop()
+        resetAudio()
     }
     
     @IBAction func slowButtonPress(sender: AnyObject) {
