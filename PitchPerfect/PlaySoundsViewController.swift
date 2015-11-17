@@ -147,6 +147,10 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func stopButtonPress(sender: AnyObject) {
         // Stop the audio player early.
         audioPlayerNode.stop()
+        // Stop the audio players that play when the echo
+        // effect is used.
+        audioPlayerEcho.stop()
+        audioPlayer.stop()
     }
     
     @IBAction func slowButtonPress(sender: AnyObject) {
