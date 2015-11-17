@@ -57,9 +57,10 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     // Defines a function that will play the audio with the input
     // pitch and rate.
-    func playAudioWithEffect (Pitch : Float, Rate : Float) {
-        // Define an instance of unit time pitch for the desired rate effect.
-        let changeEffect = AVAudioUnitTimePitch()
+    func playAudioWithEffect (Pitch : Float = 1.0, Rate : Float = 1.0, Reverb : Float = 0.0) {
+        // Define an instances for deired effects.
+        let changeEffectUnitTime = AVAudioUnitTimePitch()
+        let changeEffectReverb = AVAudioUnitReverb()
         
         // Reset the audio player.
         resetAudio()
@@ -68,14 +69,19 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioEngine = AVAudioEngine()
         
         // Set the effects based on the inputs.
-        changeEffect.rate = Rate
-        changeEffect.pitch = Pitch
+        changeEffectUnitTime.rate = Rate
+        changeEffectUnitTime.pitch = Pitch
+        changeEffectReverb.wetDryMix = Reverb;
         
-        // Attatch and connect the nodes.
+        // Attatch the nodes.
         audioEngine.attachNode(audioPlayerNode)
-        audioEngine.attachNode(changeEffect)
-        audioEngine.connect(audioPlayerNode, to: changeEffect, format: nil)
-        audioEngine.connect(changeEffect, to: audioEngine.outputNode, format: nil)
+        audioEngine.attachNode(changeEffectUnitTime)
+        audioEngine.attachNode(changeEffectReverb)
+
+        // Connect the nodes
+        audioEngine.connect(audioPlayerNode, to: changeEffectUnitTime, format: nil)
+        audioEngine.connect(changeEffectUnitTime, to: changeEffectReverb, format: nil)
+        audioEngine.connect(changeEffectReverb, to: audioEngine.outputNode, format: nil)
         
         // Schedule the file for playing
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
@@ -86,37 +92,7 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         // Play the audio file.
         audioPlayerNode.play()
     }
-    
-    // Defines a function that will play the audio with reverb.
-    func playAudioWithReverb (Reverb : Float) {
-        // Defines the change effect instance.
-        let changeEffect = AVAudioUnitReverb ()
-        
-        // Reset the audio player.
-        resetAudio ()
-        
-        // Define audio engine locally.
-        audioEngine = AVAudioEngine()
-        
-        // Set reverb to cathedral.
-        changeEffect.wetDryMix = Reverb
-        
-        // Attatch and connect the nodes.
-        audioEngine.attachNode(audioPlayerNode)
-        audioEngine.attachNode(changeEffect)
-        audioEngine.connect(audioPlayerNode, to: changeEffect, format: nil)
-        audioEngine.connect(changeEffect, to: audioEngine.outputNode, format: nil)
-        
-        // Schedule the file for playing
-        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        
-        // Start the audio engine. If this is nil, something horrible went wrong and we should crash.
-        try! audioEngine.start()
-        
-        // Play the audio file.
-        audioPlayerNode.play()
-    }
-    
+
     // Defines a function that will play the audio with echo.
     func playAudioWithEcho (Delay : Double) {
         // Reset the audio player.
@@ -155,26 +131,26 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func slowButtonPress(sender: AnyObject) {
         audioPlayerNode.stop()
-        playAudioWithEffect(1.0, Rate: 1/2)
+        playAudioWithEffect(Rate: 1/2)
     }
     
     @IBAction func fastButtonPress(sender: AnyObject) {
         audioPlayerNode.stop()
-        playAudioWithEffect(1.0, Rate: 2.0)
+        playAudioWithEffect(Rate: 2.0)
     }
     
     @IBAction func highButtonPress(sender: AnyObject) {
         audioPlayerNode.stop()
-        playAudioWithEffect(1000.0, Rate: 1.0)
+        playAudioWithEffect(1000.0)
     }
     
     @IBAction func lowButtonPress(sender: AnyObject) {
         audioPlayerNode.stop()
-        playAudioWithEffect(-1000.0, Rate: 1.0)
+        playAudioWithEffect(-1000.0)
     }
     
     @IBAction func reverbButtonPress(sender: AnyObject) {
-        playAudioWithReverb(75.0)
+        playAudioWithEffect(Reverb: 75.0)
     }
     
     @IBAction func echoButtonPress(sender: AnyObject) {
