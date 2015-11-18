@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jf4-1o-S5H">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -9,7 +8,6 @@
         <!--Record-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="PitchPerfect" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -89,13 +87,13 @@
                         <segue destination="Oc0-Xd-er3" kind="show" identifier="playSoundSegue" id="8fM-zb-vbE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2040" y="316"/>
         </scene>
         <!--Play Sounds View Controller-->
         <scene sceneID="ed4-yW-m2g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bfD-yW-FKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Oc0-Xd-er3" customClass="PlaySoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YzS-cM-arG"/>
@@ -109,7 +107,8 @@
                                 <rect key="frame" x="260" y="500" width="80" height="80"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="bND-xd-eXj"/>
+                                    <constraint firstAttribute="height" constant="80" id="C89-YM-5qZ"/>
+                                    <constraint firstAttribute="width" constant="80" id="WhG-cX-4bU"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="stop"/>
                                 <connections>
@@ -185,21 +184,21 @@
                             <constraint firstItem="3tq-hP-ZTR" firstAttribute="leading" secondItem="55k-br-wKL" secondAttribute="leading" id="Ic5-A7-3dv"/>
                             <constraint firstItem="PcI-Rt-F3Q" firstAttribute="top" secondItem="cqJ-bE-qny" secondAttribute="bottom" constant="46" id="RN0-Cq-cMD"/>
                             <constraint firstItem="cqJ-bE-qny" firstAttribute="leading" secondItem="mRo-wU-Bsc" secondAttribute="leading" id="ULI-1a-8hK"/>
+                            <constraint firstItem="ZXZ-cm-kqP" firstAttribute="centerX" secondItem="mZv-sv-M26" secondAttribute="centerX" id="Vny-aT-szU"/>
                             <constraint firstItem="55k-br-wKL" firstAttribute="leading" secondItem="COh-ww-ufS" secondAttribute="leading" id="X0f-ya-wrE"/>
                             <constraint firstItem="COh-ww-ufS" firstAttribute="top" secondItem="PcI-Rt-F3Q" secondAttribute="top" id="ecl-bx-ciT"/>
                             <constraint firstAttribute="leadingMargin" secondItem="cqJ-bE-qny" secondAttribute="leading" id="hPb-MY-vsE"/>
-                            <constraint firstAttribute="bottom" secondItem="ZXZ-cm-kqP" secondAttribute="bottom" constant="20" symbolic="YES" id="jbd-oo-cl9"/>
                             <constraint firstItem="55k-br-wKL" firstAttribute="trailing" secondItem="3tq-hP-ZTR" secondAttribute="trailing" id="lpP-PX-KCa"/>
-                            <constraint firstItem="ZXZ-cm-kqP" firstAttribute="top" secondItem="YzS-cM-arG" secondAttribute="bottom" constant="436" id="m0b-gU-gMn"/>
                             <constraint firstItem="cqJ-bE-qny" firstAttribute="bottom" secondItem="55k-br-wKL" secondAttribute="bottom" id="mVd-Sw-uz5"/>
                             <constraint firstItem="gLH-EO-ngS" firstAttribute="top" secondItem="PcI-Rt-F3Q" secondAttribute="bottom" constant="153" id="quy-uP-XU1"/>
-                            <constraint firstItem="ZXZ-cm-kqP" firstAttribute="centerX" secondItem="mZv-sv-M26" secondAttribute="centerX" id="st2-Ax-gRy"/>
+                            <constraint firstAttribute="bottom" secondItem="ZXZ-cm-kqP" secondAttribute="bottom" constant="20" symbolic="YES" id="rqB-nB-w9g"/>
                             <constraint firstItem="mRo-wU-Bsc" firstAttribute="top" secondItem="3tq-hP-ZTR" secondAttribute="top" id="wsr-t1-mis"/>
                             <constraint firstAttribute="leadingMargin" secondItem="PcI-Rt-F3Q" secondAttribute="leading" id="yJ1-8p-bNI"/>
                             <constraint firstItem="cqJ-bE-qny" firstAttribute="top" secondItem="mRo-wU-Bsc" secondAttribute="bottom" constant="47" id="yOp-Gf-urg"/>
                         </constraints>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfD-yW-FKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2730" y="316"/>
         </scene>
